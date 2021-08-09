@@ -4,7 +4,7 @@ import unittest
 # allows import to 'see' files in the base directory
 sys.path.append('../')
 
-from main import getType
+from main import getKeebSize, getType, getVendors, getPrices
 
 class ScraperTests(unittest.TestCase):
     def test_get_type(self):
@@ -24,3 +24,26 @@ class ScraperTests(unittest.TestCase):
             with self.subTest():
                 self.assertEqual(getType(title), output, msg=f'{title}')
 
+    def test_get_keeb_size(self):
+        tests = (
+
+        )
+        for title, output in tests:
+            with self.subTest():
+                self.assertEqual(getKeebSize(title), output, msg=f'{title}')
+
+    def test_get_vendors(self):
+        tests = (
+
+        )
+        for mod_comment, output in tests:
+            with self.subTest():
+                self.assertEqual(getVendors(mod_comment), output, msg=f'{mod_comment}')
+
+    def test_get_prices(self):
+        tests = (
+
+        )
+        for mod_comment, item_type, output in tests:
+            with self.subTest():
+                self.assertEqual(getPrices(mod_comment, item_type), output, msg=f'{mod_comment} ({item_type})')
